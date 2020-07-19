@@ -6,21 +6,16 @@ public class FXManager : MonoBehaviour {
     public GameObject path;
     public GameObject endPointFX;
     public GameObject startPointFX;
+    public GameObject rockFX;
+    public List<Sprite> RockSprites;
     public List<Sprite> GridUnitSprites;
     public List<Sprite> EndPointSprites;
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
     public void DrawPath(List<GameObject> anchorPoints)
     {
         LineRenderer lr = path.GetComponent<LineRenderer>();
-        lr.numPositions = anchorPoints.Count;
+        lr.positionCount = anchorPoints.Count;
 
         //create path
         for (int x = 0; x < anchorPoints.Count; x++)
@@ -34,4 +29,5 @@ public class FXManager : MonoBehaviour {
         //create start point
         GameObject.Instantiate(startPointFX, anchorPoints[0].transform.position, Quaternion.identity);
     }
+
 }
